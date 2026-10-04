@@ -18,7 +18,7 @@ I built this dashboard as a portfolio project to practise data modelling, DAX an
 
 
 
-!\[Sales Overview](screenshots/sales\_overview.png)
+![Sales Overview](screenshots/sales_overview.png)
 
 
 
@@ -26,7 +26,7 @@ I built this dashboard as a portfolio project to practise data modelling, DAX an
 
 
 
-**At a glance:** \*\* £8.37M revenue \*\*, \*\* 17,754 orders \*\*, \*\* 4.87M units sold \*\*, \*\* 4,297 customers \*\*, \*\* £471.44 average order value \*\*
+**At a glance:**  £8.37M revenue , 17,754 orders , 4.87M units sold , 4,297 customers , £471.44 average order value
 
 
 
@@ -86,7 +86,7 @@ Headline KPIs, the monthly revenue trend, and the top 5 countries and products.
 
 
 
-!\[Sales Overview](screenshots/sales\_overview.png)
+![Sales Overview](screenshots/sales_overview.png)
 
 
 
@@ -100,7 +100,7 @@ Revenue, orders, customers and average order value by country.
 
 
 
-!\[Geography](screenshots/geography.png)
+![Geography](screenshots/geography.png)
 
 
 
@@ -114,7 +114,7 @@ Total revenue, units sold and orders along with a revenue concentration chart.
 
 
 
-!\[Products](screenshots/products.png)
+![Products](screenshots/products.png)
 
 
 
@@ -128,7 +128,7 @@ Monthly revenue with MoM growth, orders, units sold and average order value.
 
 
 
-!\[Time Trend](screenshots/time\_trend.png)
+![Time Trend](screenshots/time_trend.png)
 
 
 
@@ -166,7 +166,7 @@ Monthly revenue with MoM growth, orders, units sold and average order value.
 |-|-|
 |retail|Transaction level fact table|
 |DateTable|Calendar table used for month-level analysis|
-|\_measures|Dedicated table holding all DAX measures|
+|_measures|Dedicated table holding all DAX measures|
 
 
 
@@ -205,18 +205,18 @@ Monthly revenue with MoM growth, orders, units sold and average order value.
 
 &#x20;                   CALCULATE(
 
-&#x20;                   \[Total Revenue],
+&#x20;                   [Total Revenue],
 
-&#x20;                   FILTER(ALL(retail\[Description]), \[Total Revenue] >= CurrentRevenue))
+&#x20;                   FILTER(ALL(retail[Description]), [Total Revenue] >= CurrentRevenue))
 
-* **Cumulative revenue % =** DIVIDE(\[Cumulative Revenue], CALCULATE(\[Total Revenue], ALL(retail\[Description])))
+* **Cumulative revenue % =** DIVIDE([Cumulative Revenue], CALCULATE([Total Revenue], ALL(retail[Description])))
 * **MoM Revenue Growth % =** 
 
-&#x20;           VAR CurrentRevenue = \[Total Revenue]
+&#x20;           VAR CurrentRevenue = [Total Revenue]
 
 &#x20;           VAR PreviousRevenue = 
 
-&#x20;               CALCULATE(\[Total Revenue], DATEADD(DateTable\[Date], -1, MONTH))
+&#x20;               CALCULATE([Total Revenue], DATEADD(DateTable[Date], -1, MONTH))
 
 &#x20;               RETURN
 
